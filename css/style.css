@@ -1,0 +1,14 @@
+.layer {
+  position: absolute;
+  background: aqua;
+  visibility: hidden;;
+ right: 0;
+ bottom: 0;
+ left: 0;
+ 
+}
+.card-suggest:hover .layer {
+ bottom: 100%;
+ visibility: visible;
+
+}

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yummy</title>
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/output.css" />
+  </head>
+  <body class="bg-black">
+    <div
+      class="loading z-[50] w-full h-full bg-black fixed top-0 left-0 flex justify-center items-center hidden"
+    >
+      <span class="loader"></span>
+    </div>
+
+    <section>
+      <div class="container ps-20 md:pe-20">
+        <div
+          id="content"
+          class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-10"
+        ></div>
+      </div>
+      <div class="sidebar text-white fixed top-0 left-0 min-h-screen flex z-50">
+        <div class="side-links hidden bg-black whitespace-nowrap">
+          <div
+            class="p-6 flex flex-col justify-between items-start min-h-screen"
+          >
+            <ul class="relative">
+              <li
+                class="py-2 cursor-pointer relative mt-6 -ms-10"
+                id="searchLink"
+              >
+                Search
+              </li>
+              <li
+                class="py-2 cursor-pointer relative mt-8 -ms-14"
+                id="categoriesLink"
+              >
+                Categories
+              </li>
+              <li
+                class="py-2 cursor-pointer relative mt-10 -ms-16"
+                id="areaLink"
+              >
+                Area
+              </li>
+              <li
+                class="py-2 cursor-pointer relative mt-12 -ms-20"
+                id="ingredientsLink"
+              >
+                Ingredients
+              </li>
+              <li
+                class="py-2 cursor-pointer relative mt-14 -ms-24"
+                id="contactLink"
+              >
+                Contact Us
+              </li>
+            </ul>
+            <div class="icons-info">
+              <div class="icons">
+                <i class="fa-brands fa-facebook cursor-pointer"></i>
+                <i class="fa-brands fa-twitter cursor-pointer"></i>
+                <i class="fa-solid fa-globe cursor-pointer"></i>
+              </div>
+              <p class="mb-4">
+                Copyright Â© 2019 All Rights <br />
+                Reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="side-header bg-white py-6 px-2 flex flex-col justify-between"
+        >
+          <div class="logo">
+            <img src="./images/logo.png" class="w-12" alt="logo" />
+          </div>
+          <div
+            class="icon flex justify-center items-center text-black cursor-pointer"
+          >
+            <i class="fa-solid fa-bars open-close-icon text-4xl"></i>
+          </div>
+          <div
+            class="icons flex flex-col items-center justify-center gap-1 text-black"
+          >
+            <i class="fa-solid fa-globe d-block cursor-pointer"></i>
+            <i class="fa-solid fa-share-nodes cursor-pointer"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="details" class="w-full h-full bg-black text-white hidden">
+      <div class="container ps-20 md:pe-20 my-14">
+        <div
+          id="detailsContent"
+          class="grid gap-6 grid-cols-1 md:grid-cols-[30%_minmax(0,1fr)]"
+        ></div>
+      </div>
+    </section>
+
+    <section id="search" class="w-full h-full bg-black py-6 hidden">
+      <div class="container ps-20 md:pe-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:px-12">
+          <input
+            onkeyup="searshByName(this.value)"
+            class="px-3 py-2 rounded bg-black border focus:outline-none duration-500 text-white"
+            type="text"
+            name="Name"
+            id="searchByName"
+            placeholder="Search By Name"
+          />
+          <input
+            onkeyup="searchByFirstLetter(this.value)"
+            maxlength="1"
+            class="px-3 py-2 rounded bg-black border focus:outline-none duration-500 text-white"
+            type="text"
+            name="First Letter"
+            id="searchByFirstLetter"
+            placeholder="Search By First Letter"
+          />
+        </div>
+        <div
+          id="searchContent"
+          class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-16"
+        ></div>
+      </div>
+    </section>
+    <section id="categories" class="py-6 w-full h-full text-black hidden">
+      <div class="container ps-20 md:pe-20">
+        <div
+          id="categoriesContent"
+          class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-10"
+        ></div>
+      </div>
+    </section>
+    <section id="area" class="py-6 w-full h-full text-white hidden">
+      <div class="container ps-20 md:pe-20">
+        <div
+          id="areaContent"
+          class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-10"
+        ></div>
+      </div>
+    </section>
+
+    <section id="ingredients" class="py-6 w-full h-full text-white hidden">
+      <div class="container ps-20 md:pe-20">
+        <div
+          id="ingredientsContent"
+          class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-10"
+        ></div>
+      </div>
+    </section>
+    <section id="contact" class="py-6 hidden">
+      <div
+        class="container ps-20 md:pe-20 min-h-screen flex justify-center items-center"
+      >
+        <form
+          class="grid grid-cols-1 items-start md:grid-cols-2 gap-4 md:px-12 m-auto w-full md:w-3/4"
+        >
+          <div>
+            <input
+              class="px-3 py-2 w-full rounded bg-white border focus:outline-none duration-500 text-black"
+              type="text"
+              name="Name"
+              id="inputName"
+              placeholder="Enter Your Name"
+            />
+            <div
+              id="alertName"
+              class="alert w-full bg-[#f8d7da] text-[#842029] border border-[#f5c2c7] rounded py-4 px-4 mt-2 text-center hidden"
+            >
+              Special characters and numbers not allowed
+            </div>
+          </div>
+          <div>
+            <input
+              class="px-3 py-2 w-full rounded bg-white border focus:outline-none duration-500 text-black"
+              type="email"
+              name="mail"
+              id="inputMail"
+              placeholder="Enter Your Email"
+            />
+            <div
+              id="alertMail"
+              class="alert w-full bg-[#f8d7da] text-[#842029] border border-[#f5c2c7] rounded py-4 px-4 mt-2 text-center hidden"
+            >
+              Email not valid *exemple@yyy.zzz
+            </div>
+          </div>
+          <div>
+            <input
+              class="px-3 py-2 w-full rounded bg-white border focus:outline-none duration-500 text-black"
+              type="text"
+              name="Phone"
+              id="inputPhone"
+              placeholder="Enter Your Phone"
+            />
+            <div
+              id="alertPhone"
+              class="alert w-full bg-[#f8d7da] text-[#842029] border border-[#f5c2c7] rounded py-4 px-4 mt-2 text-center hidden"
+            >
+              Enter valid Phone Number
+            </div>
+          </div>
+          <div>
+            <input
+              class="px-3 py-2 w-full rounded bg-white border focus:outline-none duration-500 text-black"
+              type="number"
+              name="Age"
+              id="inputAge"
+              placeholder="Enter Your Age"
+            />
+            <div
+              id="alertAge"
+              class="alert w-full bg-[#f8d7da] text-[#842029] border border-[#f5c2c7] rounded py-4 px-4 mt-2 text-center hidden"
+            >
+              Enter valid age
+            </div>
+          </div>
+          <div>
+            <input
+              class="px-3 py-2 w-full rounded bg-white border focus:outline-none duration-500 text-black"
+              type="password"
+              name="Pass"
+              id="inputPass"
+              placeholder="Enter Your Password"
+            />
+            <div
+              id="alertPass"
+              class="alert w-full bg-[#f8d7da] text-[#842029] border border-[#f5c2c7] rounded py-4 px-4 mt-2 text-center hidden"
+            >
+              Enter valid password *Minimum eight characters, at least one
+              letter and one number:*
+            </div>
+          </div>
+          <div>
+            <input
+              class="px-3 py-2 w-full rounded bg-white border focus:outline-none duration-500 text-black"
+              type="password"
+              name="Repass"
+              id="inputRePass"
+              placeholder="Repassword"
+            />
+            <div
+              id="alertRepass"
+              class="alert w-full bg-[#f8d7da] text-[#842029] border border-[#f5c2c7] rounded py-4 px-4 mt-2 text-center hidden"
+            >
+              Enter valid repassword
+            </div>
+          </div>
+
+          <button
+            id="submitBtn"
+            type="submit"
+            disabled
+            class="border md:col-span-2 text-[#dc3545] mx-auto block py-2 px-3 rounded cursor-pointer border-[#dc3545] duration-500 hover:bg-[#dc3545] hover:text-white"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
